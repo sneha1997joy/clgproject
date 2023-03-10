@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+{% block content %}
+<body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <body>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 
+        {% for msg in messages %}
+        <script>
+            // swal({"{{ msg }}",button:"ok ha"});
+            swal({
+                title: "",
+                text: "{{ msg }}",
+                icon: "success",
+                button: "ok",
+                });
+        </script>
+        {% endfor %} -->
+
+        <div class="container">
+            <h3 class="alert alert-dark text-center mb-5 w-50">
+                Add Student Details
+            </h3>
+                <form method="post" action="{% url 'addstudent' %}" >
+                    {% csrf_token %}
+                    <input type="text" name="studentname" class="form-control mt-3" placeholder="Enter Student Name">
+                    <input type="text" name="phone" class="form-control mt-3 mb-3" placeholder="Phone_Number">
+                    <input type="text" name="gender" class="form-control mt-3" placeholder="Gender">
+                    <input type="text" name="address" class="form-control mt-3" placeholder="Address"><br>
+                    <select class="form-control" name="select" id="qwerty" >
+                        {% for i in courses %}
+                
+                        <option value="{{ i.id }}">{{ i.Course_Name }}</option>
+                
+                        {% endfor %}
+                </select>
+                    <button type="submit" class="btn btn-success mt-3 " style="width: 650px;">Submit</button>
+                </form>
+        </div>
+    </body>
+    <style>
+        .container{
+            position: absolute;
+            left: 30%;
+            top: 27%;
+        }
+        input[type=text],[type=number]{
+            width: 650px;
+        }
+        #qwerty
+        {
+            width:650px;
+        }
+        /* .btn{
+            width: 600px;
+        } */
+    </style>
+    </html>
+
+{% endblock %}

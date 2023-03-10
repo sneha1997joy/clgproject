@@ -1,0 +1,72 @@
+<html lang="en">
+    <head>
+        {% load static %}
+        <title>
+           college management system
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+   
+        
+<head>{% load static %}</head>
+<br><br><br><br><body style=" background-color:rgb(236, 47, 138);"><center>
+    <h3>
+        EDIT DETAILS
+    </h3>
+    
+    <fieldset id="fs4">
+    <form method="post" action="/editteacher/{{ tchr.id }}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+    <fieldset id="fs3">
+    
+   
+        {% if tchr.image %}
+         <img src="{{ tchr.image.url }}" width="50px" height="100px" class="w-25">
+        {% else %}
+            <img src="{% static 'image/default.JPG' %}" width="200px" height="50px" class="w-25">
+            {{tchr.image}}
+        {% endif %}
+        <input type="file" name="file" accept="image/*" >
+<br><br><br><br>
+        <label>Enter First name:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="f_name" value="{{ tchr.First_Name }}"><br><br>
+
+        <label>Enter Last name :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="l_name" value="{{ tchr.Last_Name }}"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>Age:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="age" value="{{ tchr.Age }}"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>Address:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="address" value="{{ tchr.Address }}"></textarea><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <label>Course :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="course" value="{{ tchr.Course_Name.Course_Name }}"><br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        &nbsp;&nbsp;&nbsp;&nbsp; <label>Email id:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="email" value="{{ tchr.Email }}"><br><br>
+        
+    
+        
+        <button type="submit" >UPDATE</button>
+        
+        <input id="in1" type=button value="PREVIOUS PAGE" onClick="javascript:history.go(-1);">
+    </form>
+    <br><br>
+    </fieldset>
+    </center>
+
+</body>

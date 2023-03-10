@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body id="b3">
+    <form method="POST" action="/deletecourse/{{ crs.id }}">
+        {% csrf_token %}
+        <fieldset id="fs3">
+        <p>Are you sure you want to delete ?
+            <bold>
+                '{{  crs.Course_Name }}'
+          </bold>
+        </p>
+       <a id="a1" href="javascript:history.go(-1);">
+            Go Back
+        </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="submit" value="CONFIRM"/>
+    </form>
+</fieldset>
+</body>
+</html>
